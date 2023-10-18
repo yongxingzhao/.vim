@@ -205,7 +205,7 @@ set selection=inclusive
 
 "" "unnamed": use * registers like unnamed registers
 "" "autoselect": put the selected text always on the clipboard
-set clipboard+=unnamed
+set clipboard=unnamed,unnamedplus
 
 
 """****** 14. Editing text ******
@@ -688,19 +688,19 @@ let g:rainbow_conf = {
 
 
 """****** @YouCompleteMe ******
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
+" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 """------ @YouCompleteMe -----
 
 " let g:ycm_goto_buffer_command = 'horizontal-split'
 "开启 YCM 基于标签引擎
-let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_collect_identifiers_from_tags_files = 1
 "注释与字符串中的内容也用于补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1 
 " let g:syntastic_ignore_files=[".*\.py$"]
 "语法关键字补全
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_confirm_extra_conf = 0
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_confirm_extra_conf = 0
 "映射按键, 没有这个会拦截掉tab, 导致其他插件的tab不能用.
 " let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
@@ -776,6 +776,23 @@ Plug 'tmux-plugins/vim-tmux'
 """------ @vim-tmux -----
 "" Vim plugin for .tmux.conf
 
+
+"""****** @fzf ******
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+"""------ @fzf -----
+nnoremap <silent> <c-f> :Files <CR>
+
+set rtp+=/opt/homebrew/opt/fzf
+
+
+"""****** @vim-paragraph-motion ******
+Plug 'dbakker/vim-paragraph-motion'
+"""------ @vim-paragraph-motion -----
+
+"""****** @switch ******
+Plug 'AndrewRadev/switch.vim'
+"""------ @switch -----
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
